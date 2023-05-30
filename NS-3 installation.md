@@ -38,10 +38,48 @@ cmake /home/<linux_user>/ns3/ns-3-dev
 ```
 cmake --build .
 ```
-### Step 7 : Test using first.cc
+### Step 7 : Test using hello-simulator.cc and first.cc
+Navigate to folder containing sample files
 ```
 cd /home/<linux_user>/ns3/ns-3-dev/examples/tutorial
+```
+#### *Hello Simulator :*
+```
+cp hello-simulator.cc ../../scratch/
+```
+Run make
+```
+cd /home/<linux_user>/ns3/ns-3-dev/
+make
+```
+Notice these lines when the command finishes execution
+```
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/<linux_user>/ns3/ns-3-dev
+Scanning dependencies of target scratch_hello-simulator
+[  0%] Building CXX object scratch/CMakeFiles/scratch_hello-simulator.dir/hello-simulator.cc.o
+[  0%] Linking CXX executable ../build/scratch/ns3-dev-hello-simulator
+```
+Navigate to folder where the executable file has been created
+```
+cd /home/<linux_user>/ns3/ns-3-dev/build/scratch
+```
+Run the file
+```
+ ./ns3-dev-hello-simulator
+```
+Output 
+```
+Hello Simulator
+```
+##
+#### *First :*
+```
 cp first.cc ../../scratch/
+```
+Run make:
+```
 cd /home/<linux_user>/ns3/ns-3-dev/
 make
 ```
@@ -54,18 +92,22 @@ Scanning dependencies of target scratch_first
 [  0%] Building CXX object scratch/CMakeFiles/scratch_first.dir/first.cc.o
 [  0%] Linking CXX executable ../build/scratch/ns3-dev-first
 ```
-Navigate to folder where the executable file has been created and run it
+Navigate to folder where the executable file has been created
 ```
 cd /home/<linux_user>/ns3/ns-3-dev/build/scratch
+```
+Run the file
+```
 ./ns3-dev-first
 ```
-Output should be similar to below
+Output should be similar to below 
 ```
 At time +2s client sent 1024 bytes to 10.1.1.2 port 9
 At time +2.00369s server received 1024 bytes from 10.1.1.1 port 49153
 At time +2.00369s server sent 1024 bytes to 10.1.1.1 port 49153
 At time +2.00737s client received 1024 bytes from 10.1.1.2 port 9
 ```
+##
 ### Congratulations, You have successfully installed ns3 !
 
 
