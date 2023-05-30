@@ -1,6 +1,7 @@
-# NS-3 INSTALLATION 
-## Steps are for installing NS3 on WSL2 (Windows Subsytem for Linux) - Ubuntu 20.04.5 LTS
+# NS-3 and NetAnim INSTALLATION 
 
+## Steps are for installation on WSL2 (Windows Subsytem for Linux) - Ubuntu 20.04.5 LTS
+## NS-3
 ### Step 1 : Update system packages
 ``` 
 sudo apt update
@@ -108,7 +109,51 @@ At time +2.00369s server sent 1024 bytes to 10.1.1.1 port 49153
 At time +2.00737s client received 1024 bytes from 10.1.1.2 port 9
 ```
 ##
+
 ### Congratulations, You have successfully installed ns3 !
 
+## NetAnim
 
+### Step 1 : Install required dependencies 
+```
+sudo apt install qt5-default mercurial libxml2 libxml2-dev zlib1g zlib1g-dev
+```
+### Step 2 : Download NetAnim 
+Navigate to the ns3 directory created earlier
+```
+cd /home/<linux_user>/ns3
+```
+Clone the NetAnim repository
+```
+git clone https://gitlab.com/nsnam/netanim
+```
+Switch into the directory
+```
+cd netanim
+```
+### Step 3 : Configure and Compile NetAnim 
+```
+qmake NetAnim.pro
+make
+```
+Verify NetAnim GUI loads
+```
+./NetAnim
+```
+### Step 4 : Testing with first.cc file
+Open the file *first.cc* using an editor 
+```
+cd /home/<linux_user>/ns3/ns-3-dev/scratch
+gedit first.cc
+```
+Modify the code as below:
+```
+#include "ns3/netanim-module.h"
+```
+Adding code to create xml file before Simulator runs 
+```
+AnimationInterface anim("anim1.xml");
+anim.SetConstantPosition(nodes.Get(0),1.0,2.0);
+anim.SetConstantPosition(nodes.Get(1),2.0,3.0);
+```
 
