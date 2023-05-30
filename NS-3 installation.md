@@ -112,6 +112,8 @@ At time +2.00737s client received 1024 bytes from 10.1.1.2 port 9
 
 ### Congratulations, You have successfully installed ns3 !
 
+##
+
 ## NetAnim
 
 ### Step 1 : Install required dependencies 
@@ -156,4 +158,5 @@ AnimationInterface anim("anim1.xml");
 anim.SetConstantPosition(nodes.Get(0),1.0,2.0);
 anim.SetConstantPosition(nodes.Get(1),2.0,3.0);
 ```
-
+Run as specified before
+Open NetAnim and select anim1.xml file to open and see the animation
